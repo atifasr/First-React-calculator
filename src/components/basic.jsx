@@ -1,6 +1,6 @@
 // Calculator
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 
 let Button = (props) => {
     let style_obj = {
@@ -15,12 +15,12 @@ let Button = (props) => {
     if (props.value === 'C')
     {
         style_obj.color = 'purple'
-        style_obj.fontSize = '2em'
+        style_obj.fontSize = '1em'
 
     }
     else{
         style_obj['color'] = 'orange'
-        style_obj['fontSize'] = '3em'
+        style_obj['fontSize'] = '1em'
     }
 
     if (props.buttonType === 'operator')
@@ -61,8 +61,6 @@ const Calculator = (props) => {
     useEffect(() => {
         // setState(stateValue-1)
         // any APi call here
-         
-        console.log('rendered')
     }) 
 
 
@@ -90,92 +88,87 @@ const Calculator = (props) => {
         settextvalue(0)
         set_temp_storage(parseInt(textvalue))
         set_temo_operator(e.target.value)
-        console.log(temp_operator)
+        
+
+
     }
 
     function subtractOperation(e){
-        console.log('subtractOperationalculate')
+        
         settextvalue(0)
         set_temp_storage(parseInt(textvalue))
         set_temo_operator(e.target.value)
-        console.log(temp_operator)
     }
 
     function mutliplyOperation(e){
-        console.log('mutliplyOperation from calculate')
         settextvalue(0)
         set_temp_storage(parseInt(textvalue))
         set_temo_operator(e.target.value)
-        console.log(temp_operator)
     }
 
     function divideOperation(e){
-
-        console.log('divideOperation from calculate')
         settextvalue(0)
         set_temp_storage(parseInt(textvalue))
         set_temo_operator(e.target.value)
-        console.log(temp_operator)
     }
 
 
     function calculate(e){
-        console.log('calling from calculate')
         
             // settextvalue(0)
         if( temp_operator === '+' )
         {   
-            console.log(`${temp_operator} yes Plus`)
             let operation_result = temp_storage + parseInt(textvalue)
             settextvalue(operation_result)
-            console.log(operation_result)
         }
 
         if( temp_operator === '-' )
         {   
-            console.log(`${temp_operator} yes Plus`)
             let operation_result = temp_storage - parseInt(textvalue)
             settextvalue(operation_result)
-            console.log(operation_result)
         }
 
         if( temp_operator === '/' )
         {   
-            console.log(`${temp_operator} yes Plus`)
             let operation_result = temp_storage / parseInt(textvalue)
             settextvalue(operation_result)
-            console.log(operation_result)
         }
 
         if( temp_operator === '*' )
         {   
-            console.log(`${temp_operator} yes Plus`)
             let operation_result = temp_storage * parseInt(textvalue)
             settextvalue(operation_result)
-            console.log(operation_result)
         }
 
     }
 
 
     return (
-        <div>
-        <TextBox value={textvalue} size="300px" width_size = "100px" fontSize ="2em"/>
-           <Button onClick={onChange} className="btn" buttonType ="operand" value="1"/> 
-           <Button onClick={onChange} className="btn" buttonType ="operand" value="2"/> 
-           <Button onClick={onChange} className="btn" buttonType ="operand" value="3"/>
-           <Button onClick={onChange} className="btn" buttonType ="operand" value="4"/> 
-           <Button onClick={onChange} className="btn" buttonType ="operand" value="5"/>
-           <Button onClick={onChange} className="btn" buttonType ="operand" value="6"/> 
-           <Button onClick={onChange} className="btn" buttonType ="operand" value="7"/> 
-           <Button onClick={onChange} className="btn" buttonType ="operand" value="8"/> 
-           <Button onClick={onChange} className="btn" buttonType ="operand" value="0"/> 
-           <Button onClick={onClear} className="btn" buttonType ="operand" value="C"/> 
-           <Button onClick={plusOperation} className="btn" buttonType ="operator" value="+"/>
-           <Button onClick={subtractOperation} className="btn" buttonType ="operator" value="-"/> 
-           <Button onClick={divideOperation} className="btn" buttonType ="operator" value="/"/> 
-           <Button onClick={mutliplyOperation} className="btn" buttonType ="operator" value="*"/> 
-           <Button onClick={calculate} className="btn" buttonType ="" value="="/>  
+        <div className='row py-2' style={{backgroundColor:'grey',borderRadius:'5px'}}>
+            <div className='col-md-12'>
+                <TextBox className='' value={textvalue} size="300px" width_size = "100%" fontSize ="2em" style={{borderRadius:'7px'}} />              
+            </div>
+       
+           <div className='row'>
+               <div className="col-md-12 mx-auto">
+                <Button onClick={onChange} className="btn btn-primary p-2" buttonType ="operand" value="1"/> 
+                <Button onClick={onChange} className="btn btn-primary p-2" buttonType ="operand" value="2"/> 
+                <Button onClick={onChange} className="btn btn-primary p-2" buttonType ="operand" value="3"/>
+                <Button onClick={onChange} className="btn btn-primary p-2" buttonType ="operand" value="4"/> 
+                <Button onClick={onChange} className="btn btn-primary p-2" buttonType ="operand" value="5"/>
+                <Button onClick={onChange} className="btn btn-primary p-2" buttonType ="operand" value="6"/> 
+                <Button onClick={onChange} className="btn btn-primary p-2" buttonType ="operand" value="7"/> 
+                <Button onClick={onChange} className="btn btn-primary p-2" buttonType ="operand" value="8"/> 
+                <Button onClick={onChange} className="btn btn-primary p-2" buttonType ="operand" value="0"/> 
+                <Button onClick={onClear} className="btn btn-danger" buttonType ="operand" value="C"/> 
+                <Button onClick={plusOperation} className="btn-secondary" buttonType ="operator" value="+"/>
+                <Button onClick={subtractOperation} className="btn-secondary" buttonType ="operator" value="-"/> 
+                <Button onClick={divideOperation} className="btn-secondary" buttonType ="operator" value="/"/> 
+                <Button onClick={mutliplyOperation} className="btn-secondary" buttonType ="operator" value="*"/> 
+                <Button onClick={calculate} className="btn-secondary" buttonType ="" value="="/>  
+               </div>
+
+           </div>
         </div>
     )
 
