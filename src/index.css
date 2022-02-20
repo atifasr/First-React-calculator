@@ -12,8 +12,3 @@ code {
     monospace;
 }
 
-
-.btn:hover {
-    background-color: rgb(170, 141, 197);
-    color: black;
-}

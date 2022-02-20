@@ -88,9 +88,6 @@ const Calculator = (props) => {
         settextvalue(0)
         set_temp_storage(parseInt(textvalue))
         set_temo_operator(e.target.value)
-        
-
-
     }
 
     function subtractOperation(e){
